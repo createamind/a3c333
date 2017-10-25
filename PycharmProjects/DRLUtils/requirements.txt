@@ -1,0 +1,5 @@
+numpy
+six
+tensorpack>=0.4
+tensorflow-gpu>=1.2.1
+zeroc-ice>=3.7
