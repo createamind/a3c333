@@ -24,18 +24,32 @@ def write_h5(filename, x, rewards, actions):
     h5py_writer.close()
 
 from drlutils.utils.imageview import SimpleImageViewer
+def check_path(p):
+    if not osp.exists(p):
+        os.mkdir(p)
+
 def test_torcs():
     import os
     os.system('killall -9 torcs-bin; sleep 0.5')
     # agentCount = 3
     agents = []
+    tracks = ['aalborg', 'alpine-1', 'alpine-2', 'brondehach', 'corkscrew', 'eroad', 'e-track-1', 'e-track-2', 'e-track-3','e-track-4', 'e-track-6', 'forza','g-track-1', 'g-track-2', 'g-track-3', 'ole-road-1', 'ruudskogen', 'spring', 'street-1', 'wheel-1', 'wheel-2']
     #tracks = ['aalborg', 'alpine-1', 'alpine-2', 'brondehach', 'corkscrew', 'eroad', 'e-track-1', 'e-track-2', 'e-track-3', 'e-track-4', 'e-track-6', 'forza','g-track-1', 'g-track-2', 'g-track-3', 'ole-road-1', 'ruudskogen', 'spring', 'street-1', 'wheel-1', 'wheel-2']
-    tracks = ['alpine-2']
+
+    #tracks = ['eroad'] #'alpine-2'
     agentCount = len(tracks)
+    dir = 'data/'
+    size = (256,256)
 
     for aidx in range(agentCount):
+        dumppath = dir+tracks[aidx]
+        check_path(dumppath)
         os.system('killall -9 torcs-bin; sleep 0.5')
-        agent = AgentTorcs2(aidx, bots=['berniw'], track='road/{}'.format(tracks[aidx]), text_mode=False, laps=30, torcsIdxOffset=0, screen_capture = True, timeScale = 1.45)
+        try :
+            agent = AgentTorcs2(aidx, bots=['berniw'], track='road/{}'.format(tracks[aidx]), text_mode=False, laps=30, torcsIdxOffset=0, screen_capture = True, timeScale = 1.45)
+        except :
+            print("load  {}  error!!!".format(tracks[aidx]))
+            continue
         # agent = AgentTorcs2(aidx, bots=['berniw'], track='road/g-track-1', text_mode=False, laps=3, torcsIdxOffset=0, screen_capture = False, timeScale = 0.25)
         # agent = AgentTorcs2(aidx, bots=['scr_server', 'olethros', 'berniw', 'bt', 'damned'], track='road/g-track-1', text_mode=True)
 
@@ -52,34 +66,50 @@ def test_torcs():
         frames= []
         viewer = SimpleImageViewer()
         agent.reset()
-        dir = './log/'
+
         time=''
 
         encoder = ImageEncoder('{}.mp4'.format(tracks[aidx]), shape, 24)
-        for i in range(34300):
+        for i in range(3300):
             rng = agent._rng
             act = agent.sample_action()
             if rng.rand() < 0.8:
                 act[0] = rng.rand() - 0.5
             ob, action, reward, isOver = agent.step((act, 0., [0., 0.], [0., 0.]))
+            angle = ob[5]
+            speedx = ob[26]
+            speedy = ob[27]
+            print("angle : {} \n speedx : {} \n speedy : {} ".format(angle , speedx ,speedy))
+            print([i.shape for i in [ob, action, reward] ])
+            ret = np.hstack([ob, action, reward])
+            print("ret ",ret.shape,ret)
+
+
 
 
             frame = agent._cur_screen
-            frame = frame[:,40:280,:]
+            #print(frame.shape) # 576*720
+            frame = frame[:, int(360-576/2):int(360+576/2), :]
+            #frame = frame[:,40:280,:] #for 160*160
             #print(frame.shape)
-            frame = frame[40:200,:,:]
+            # frame = frame[40:200,:,:]
+            #1024 * 1024
+            #frmae = frame[:1024,:,:]
 
+            #reverse
             frame = frame[::-1,:,:]
-            frame = cv2.resize(frame,(128,128))
+            frame = cv2.resize(frame,size)
+            frame = cv2.cvtColor(frame , cv2.COLOR_BGR2RGB)
 
             #print(frame.shape)
             if i >800 : #and i mod 5 == 0 :
                 actions.append(action)
 
                 rewards.append(reward)
-                name=datetime.now().time()
+                name=i
 
-                cv2.imwrite('{}/{}.jpg'.format(dir,name),frame)
+                cv2.imwrite('{}/{}.jpg'.format(dumppath,name),frame)
+                ret.dump('{}/{}.npy'.format(dumppath,name))
 
                 #encoder.capture_frame(frame)
                 frame_t = np.transpose(frame ,(2,0,1) )
