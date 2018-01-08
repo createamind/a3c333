@@ -666,7 +666,7 @@ class AgentTorcs2(AgentSingleLoop, Race.Pool):
         def return_end_state():
             return np.zeros_like(self._last_result[0]), np.zeros_like(self._last_result[1]), np.zeros_like(self._last_result[2]), True
         try:
-            result = self._raceServerPrx.stepstep(stepParam)
+            result = self._raceServerPrx.step(stepParam)
             if len(result.statusList) == 0:
                 return return_end_state()
 

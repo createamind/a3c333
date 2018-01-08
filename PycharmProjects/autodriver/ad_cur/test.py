@@ -10,7 +10,7 @@ import subprocess
 import h5py
 import cv2
 from datetime import datetime
-#import time
+import time
 
 
 logger.info("start running")
@@ -38,7 +38,10 @@ def test_torcs():
 
     #tracks = ['eroad'] #'alpine-2'
     agentCount = len(tracks)
-    dir = '/tmp/'
+    dir = './tmp/data/'
+    if not os.path.exists(dir):
+        os.makedirs(dir)
+    #os.makedirs(dir)
     size = (256,256)
 
     for aidx in range(agentCount):
@@ -71,7 +74,7 @@ def test_torcs():
         viewer = SimpleImageViewer()
         agent.reset()
 
-        time=''
+
 
         encoder = ImageEncoder('{}.mp4'.format(tracks[aidx]), shape, 24)
         for i in range(3300):
@@ -85,12 +88,16 @@ def test_torcs():
             angle = ob[5]
             speedx = ob[26]
             speedy = ob[27]
-            #print("angle : {} \n speedx : {} \n speedy : {} ".format(angle , speedx ,speedy))
+            print("angle : {} \n speedx : {} \n speedy : {} ".format(angle , speedx ,speedy))
             print([i.shape for i in [ob, action, reward] ])
             ret = np.hstack([ob, action, reward])
             print(act)
             print(action)
             #print("ret ",ret.shape,ret)
+            print("sleeep Start")
+            print(datetime.now().time())
+
+            #time.sleep(0.02)
 
 
 
