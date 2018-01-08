@@ -26,15 +26,18 @@ def write_h5(filename, x, rewards, actions):
 from drlutils.utils.imageview import SimpleImageViewer
 def check_path(p):
     if not osp.exists(p):
-        os.mkdir(p)
+        os.makedirs(p)
 
 def test_torcs():
     import os
     os.system('killall -9 torcs-bin; sleep 0.5')
     # agentCount = 3
     agents = []
-    tracks = ['aalborg', 'alpine-1', 'alpine-2', 'brondehach', 'corkscrew', 'eroad', 'e-track-1', 'e-track-2', 'e-track-3','e-track-4', 'e-track-6', 'forza','g-track-1', 'g-track-2', 'g-track-3', 'ole-road-1', 'ruudskogen', 'spring', 'street-1', 'wheel-1', 'wheel-2']
+    #tracks = ['aalborg', 'alpine-1', 'alpine-2', 'brondehach', 'corkscrew', 'eroad', 'e-track-1', 'e-track-2', 'e-track-3','e-track-4', 'e-track-6', 'forza','g-track-1', 'g-track-2', 'g-track-3', 'ole-road-1', 'ruudskogen', 'spring', 'street-1', 'wheel-1', 'wheel-2']
     #tracks = ['aalborg', 'alpine-1', 'alpine-2', 'brondehach', 'corkscrew', 'eroad', 'e-track-1', 'e-track-2', 'e-track-3', 'e-track-4', 'e-track-6', 'forza','g-track-1', 'g-track-2', 'g-track-3', 'ole-road-1', 'ruudskogen', 'spring', 'street-1', 'wheel-1', 'wheel-2']
+    tracks = [ 'forza', 'g-track-1', 'g-track-2', 'g-track-3', 'ole-road-1',
+              'ruudskogen', 'spring', 'street-1', 'wheel-1', 'wheel-2']
+
 
     #tracks = ['eroad'] #'alpine-2'
     agentCount = len(tracks)
@@ -80,22 +83,23 @@ def test_torcs():
         for i in range(3300):
             rng = agent._rng
             act = agent.sample_action()
-            print("-----------------")
-            print(act)
+            # print("-----------------")
+            # print(act)
             if rng.rand() < 0.8:
                 act[0] = rng.rand() - 0.5
             ob, action, reward, isOver = agent.step((act, 0., [0., 0.], [0., 0.]))
             angle = ob[5]
             speedx = ob[26]
             speedy = ob[27]
-            print("angle : {} \n speedx : {} \n speedy : {} ".format(angle , speedx ,speedy))
+            # print("angle : {} \n speedx : {} \n speedy : {} ".format(angle , speedx ,speedy))
             print([i.shape for i in [ob, action, reward] ])
             ret = np.hstack([ob, action, reward])
-            print(act)
-            print(action)
-            #print("ret ",ret.shape,ret)
-            print("sleeep Start")
-            print(datetime.now().time())
+            # print(act)
+            # print(action)
+            # print(reward)
+            print("ret ",ret.shape,ret)
+            # print("sleeep Start")
+            # print(datetime.now().time())
 
             #time.sleep(0.02)
 
