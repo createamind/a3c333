@@ -666,12 +666,13 @@ class AgentTorcs2(AgentSingleLoop, Race.Pool):
         def return_end_state():
             return np.zeros_like(self._last_result[0]), np.zeros_like(self._last_result[1]), np.zeros_like(self._last_result[2]), True
         try:
-            result = self._raceServerPrx.step(stepParam)
+            result = self._raceServerPrx.stepstep(stepParam)
             if len(result.statusList) == 0:
                 return return_end_state()
 
             obs = self._parseStatus(result.statusList)
             if len(self._bots) > 1:
+                print(np.expand_dims(bot._ob_ctrl, 0))
                 action = np.concatenate([np.expand_dims(bot._ob_ctrl, 0) for bot in self._bots], axis=0)
                 reward = np.array([bot._reward for bot in self._bots], dtype=np.float32)
                 isOver = np.array([bot._isOver for bot in self._bots], dtype=np.float32)

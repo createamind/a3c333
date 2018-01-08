@@ -38,7 +38,7 @@ def test_torcs():
 
     #tracks = ['eroad'] #'alpine-2'
     agentCount = len(tracks)
-    dir = 'data/'
+    dir = '/tmp/'
     size = (256,256)
 
     for aidx in range(agentCount):
@@ -57,6 +57,10 @@ def test_torcs():
         logger.info("start running")
 
 
+
+
+
+
         stepCount = 0
         # frame = agent._cur_screen
         shape = [160,320,3]
@@ -73,16 +77,20 @@ def test_torcs():
         for i in range(3300):
             rng = agent._rng
             act = agent.sample_action()
+            print("-----------------")
+            print(act)
             if rng.rand() < 0.8:
                 act[0] = rng.rand() - 0.5
             ob, action, reward, isOver = agent.step((act, 0., [0., 0.], [0., 0.]))
             angle = ob[5]
             speedx = ob[26]
             speedy = ob[27]
-            print("angle : {} \n speedx : {} \n speedy : {} ".format(angle , speedx ,speedy))
+            #print("angle : {} \n speedx : {} \n speedy : {} ".format(angle , speedx ,speedy))
             print([i.shape for i in [ob, action, reward] ])
             ret = np.hstack([ob, action, reward])
-            print("ret ",ret.shape,ret)
+            print(act)
+            print(action)
+            #print("ret ",ret.shape,ret)
 
 
 
