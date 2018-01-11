@@ -63,8 +63,8 @@ maintexmapper.o: maintexmapper.cpp /usr/include/stdc-predef.h \
  /usr/include/x86_64-linux-gnu/bits/wchar.h /usr/include/plib/ssgconf.h \
  /usr/include/GL/glut.h /usr/include/GL/freeglut_std.h \
  /usr/include/GL/glu.h \
- /home/ubuntu/project/drlcar/PycharmProjects/autodriver/car-simulator/torcs-1.3.6/export/include/tgfclient.h \
- /home/ubuntu/project/drlcar/PycharmProjects/autodriver/car-simulator/torcs-1.3.6/export/include/tgf.h \
+ /home/test/PycharmProjects/autodriver/car-simulator/torcs-1.3.6/export/include/tgfclient.h \
+ /home/test/PycharmProjects/autodriver/car-simulator/torcs-1.3.6/export/include/tgf.h \
  /usr/include/x86_64-linux-gnu/sys/param.h /usr/include/signal.h \
  /usr/include/x86_64-linux-gnu/bits/signum.h \
  /usr/include/x86_64-linux-gnu/bits/siginfo.h \
@@ -76,9 +76,9 @@ maintexmapper.o: maintexmapper.cpp /usr/include/stdc-predef.h \
  /usr/include/x86_64-linux-gnu/bits/param.h /usr/include/linux/param.h \
  /usr/include/x86_64-linux-gnu/asm/param.h \
  /usr/include/asm-generic/param.h \
- /home/ubuntu/project/drlcar/PycharmProjects/autodriver/car-simulator/torcs-1.3.6/export/include/osspec.h \
+ /home/test/PycharmProjects/autodriver/car-simulator/torcs-1.3.6/export/include/osspec.h \
  /usr/include/plib/js.h \
- /home/ubuntu/project/drlcar/PycharmProjects/autodriver/car-simulator/torcs-1.3.6/export/include/screen_properties.h
+ /home/test/PycharmProjects/autodriver/car-simulator/torcs-1.3.6/export/include/screen_properties.h
 ssgSaveAC.o: ssgSaveAC.cpp /usr/include/stdc-predef.h ssgLocal.h \
  /usr/include/plib/ssg.h /usr/include/stdio.h /usr/include/features.h \
  /usr/include/x86_64-linux-gnu/sys/cdefs.h \

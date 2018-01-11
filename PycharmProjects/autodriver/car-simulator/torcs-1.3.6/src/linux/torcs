@@ -18,7 +18,7 @@
 #
 ##############################################################################
 
-prefix=/home/ubuntu/torcs1.3.6
+prefix=/usr/local
 exec_prefix=${prefix}
 
 BINDIR=${exec_prefix}/bin

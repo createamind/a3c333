@@ -32,7 +32,7 @@ damned.o: damned.cpp /usr/include/stdc-predef.h /usr/include/stdio.h \
  /usr/include/x86_64-linux-gnu/bits/nan.h \
  /usr/include/x86_64-linux-gnu/bits/mathdef.h \
  /usr/include/x86_64-linux-gnu/bits/mathcalls.h \
- /home/ubuntu/project/drlcar/PycharmProjects/autodriver/car-simulator/torcs-1.3.6/export/include/tgf.h \
+ /home/test/PycharmProjects/autodriver/car-simulator/torcs-1.3.6/export/include/tgf.h \
  /usr/include/x86_64-linux-gnu/sys/param.h \
  /usr/lib/gcc/x86_64-linux-gnu/5/include-fixed/limits.h \
  /usr/lib/gcc/x86_64-linux-gnu/5/include-fixed/syslimits.h \
@@ -56,14 +56,14 @@ damned.o: damned.cpp /usr/include/stdc-predef.h /usr/include/stdio.h \
  /usr/include/x86_64-linux-gnu/c++/5/bits/os_defines.h \
  /usr/include/x86_64-linux-gnu/c++/5/bits/cpu_defines.h \
  /usr/include/string.h \
- /home/ubuntu/project/drlcar/PycharmProjects/autodriver/car-simulator/torcs-1.3.6/export/include/osspec.h \
- /home/ubuntu/project/drlcar/PycharmProjects/autodriver/car-simulator/torcs-1.3.6/export/include/track.h \
- /home/ubuntu/project/drlcar/PycharmProjects/autodriver/car-simulator/torcs-1.3.6/export/include/tmath/linalg_t.h \
- /home/ubuntu/project/drlcar/PycharmProjects/autodriver/car-simulator/torcs-1.3.6/export/include/tmath/v2_t.h \
- /home/ubuntu/project/drlcar/PycharmProjects/autodriver/car-simulator/torcs-1.3.6/export/include/tmath/v3_t.h \
- /home/ubuntu/project/drlcar/PycharmProjects/autodriver/car-simulator/torcs-1.3.6/export/include/tmath/v4_t.h \
- /home/ubuntu/project/drlcar/PycharmProjects/autodriver/car-simulator/torcs-1.3.6/export/include/tmath/straight2_t.h \
- /home/ubuntu/project/drlcar/PycharmProjects/autodriver/car-simulator/torcs-1.3.6/export/include/car.h \
+ /home/test/PycharmProjects/autodriver/car-simulator/torcs-1.3.6/export/include/osspec.h \
+ /home/test/PycharmProjects/autodriver/car-simulator/torcs-1.3.6/export/include/track.h \
+ /home/test/PycharmProjects/autodriver/car-simulator/torcs-1.3.6/export/include/tmath/linalg_t.h \
+ /home/test/PycharmProjects/autodriver/car-simulator/torcs-1.3.6/export/include/tmath/v2_t.h \
+ /home/test/PycharmProjects/autodriver/car-simulator/torcs-1.3.6/export/include/tmath/v3_t.h \
+ /home/test/PycharmProjects/autodriver/car-simulator/torcs-1.3.6/export/include/tmath/v4_t.h \
+ /home/test/PycharmProjects/autodriver/car-simulator/torcs-1.3.6/export/include/tmath/straight2_t.h \
+ /home/test/PycharmProjects/autodriver/car-simulator/torcs-1.3.6/export/include/car.h \
  /usr/include/plib/sg.h /usr/include/plib/ul.h /usr/include/ctype.h \
  /usr/include/unistd.h /usr/include/x86_64-linux-gnu/bits/posix_opt.h \
  /usr/include/x86_64-linux-gnu/bits/environments.h \
@@ -77,14 +77,14 @@ damned.o: damned.cpp /usr/include/stdc-predef.h /usr/include/stdio.h \
  /usr/include/x86_64-linux-gnu/bits/errno.h /usr/include/linux/errno.h \
  /usr/include/x86_64-linux-gnu/asm/errno.h \
  /usr/include/asm-generic/errno.h /usr/include/asm-generic/errno-base.h \
- /home/ubuntu/project/drlcar/PycharmProjects/autodriver/car-simulator/torcs-1.3.6/export/include/raceman.h \
- /home/ubuntu/project/drlcar/PycharmProjects/autodriver/car-simulator/torcs-1.3.6/export/include/graphic.h \
- /home/ubuntu/project/drlcar/PycharmProjects/autodriver/car-simulator/torcs-1.3.6/export/include/simu.h \
- /home/ubuntu/project/drlcar/PycharmProjects/autodriver/car-simulator/torcs-1.3.6/export/include/robottools.h \
- /home/ubuntu/project/drlcar/PycharmProjects/autodriver/car-simulator/torcs-1.3.6/export/include/robot.h \
+ /home/test/PycharmProjects/autodriver/car-simulator/torcs-1.3.6/export/include/raceman.h \
+ /home/test/PycharmProjects/autodriver/car-simulator/torcs-1.3.6/export/include/graphic.h \
+ /home/test/PycharmProjects/autodriver/car-simulator/torcs-1.3.6/export/include/simu.h \
+ /home/test/PycharmProjects/autodriver/car-simulator/torcs-1.3.6/export/include/robottools.h \
+ /home/test/PycharmProjects/autodriver/car-simulator/torcs-1.3.6/export/include/robot.h \
  driver.h \
- /home/ubuntu/project/drlcar/PycharmProjects/autodriver/car-simulator/torcs-1.3.6/export/include/portability.h \
- /home/ubuntu/project/drlcar/PycharmProjects/autodriver/car-simulator/torcs-1.3.6/config.h \
+ /home/test/PycharmProjects/autodriver/car-simulator/torcs-1.3.6/export/include/portability.h \
+ /home/test/PycharmProjects/autodriver/car-simulator/torcs-1.3.6/config.h \
  opponent.h cardata.h pit.h spline.h learn.h strategy.h
 driver.o: driver.cpp /usr/include/stdc-predef.h driver.h \
  /usr/include/stdio.h /usr/include/features.h \
@@ -126,7 +126,7 @@ driver.o: driver.cpp /usr/include/stdc-predef.h driver.h \
  /usr/include/x86_64-linux-gnu/bits/nan.h \
  /usr/include/x86_64-linux-gnu/bits/mathdef.h \
  /usr/include/x86_64-linux-gnu/bits/mathcalls.h \
- /home/ubuntu/project/drlcar/PycharmProjects/autodriver/car-simulator/torcs-1.3.6/export/include/tgf.h \
+ /home/test/PycharmProjects/autodriver/car-simulator/torcs-1.3.6/export/include/tgf.h \
  /usr/include/x86_64-linux-gnu/sys/param.h \
  /usr/lib/gcc/x86_64-linux-gnu/5/include-fixed/limits.h \
  /usr/lib/gcc/x86_64-linux-gnu/5/include-fixed/syslimits.h \
@@ -145,14 +145,14 @@ driver.o: driver.cpp /usr/include/stdc-predef.h driver.h \
  /usr/include/x86_64-linux-gnu/bits/param.h /usr/include/linux/param.h \
  /usr/include/x86_64-linux-gnu/asm/param.h \
  /usr/include/asm-generic/param.h /usr/include/assert.h \
- /home/ubuntu/project/drlcar/PycharmProjects/autodriver/car-simulator/torcs-1.3.6/export/include/osspec.h \
- /home/ubuntu/project/drlcar/PycharmProjects/autodriver/car-simulator/torcs-1.3.6/export/include/track.h \
- /home/ubuntu/project/drlcar/PycharmProjects/autodriver/car-simulator/torcs-1.3.6/export/include/tmath/linalg_t.h \
- /home/ubuntu/project/drlcar/PycharmProjects/autodriver/car-simulator/torcs-1.3.6/export/include/tmath/v2_t.h \
- /home/ubuntu/project/drlcar/PycharmProjects/autodriver/car-simulator/torcs-1.3.6/export/include/tmath/v3_t.h \
- /home/ubuntu/project/drlcar/PycharmProjects/autodriver/car-simulator/torcs-1.3.6/export/include/tmath/v4_t.h \
- /home/ubuntu/project/drlcar/PycharmProjects/autodriver/car-simulator/torcs-1.3.6/export/include/tmath/straight2_t.h \
- /home/ubuntu/project/drlcar/PycharmProjects/autodriver/car-simulator/torcs-1.3.6/export/include/car.h \
+ /home/test/PycharmProjects/autodriver/car-simulator/torcs-1.3.6/export/include/osspec.h \
+ /home/test/PycharmProjects/autodriver/car-simulator/torcs-1.3.6/export/include/track.h \
+ /home/test/PycharmProjects/autodriver/car-simulator/torcs-1.3.6/export/include/tmath/linalg_t.h \
+ /home/test/PycharmProjects/autodriver/car-simulator/torcs-1.3.6/export/include/tmath/v2_t.h \
+ /home/test/PycharmProjects/autodriver/car-simulator/torcs-1.3.6/export/include/tmath/v3_t.h \
+ /home/test/PycharmProjects/autodriver/car-simulator/torcs-1.3.6/export/include/tmath/v4_t.h \
+ /home/test/PycharmProjects/autodriver/car-simulator/torcs-1.3.6/export/include/tmath/straight2_t.h \
+ /home/test/PycharmProjects/autodriver/car-simulator/torcs-1.3.6/export/include/car.h \
  /usr/include/plib/sg.h /usr/include/plib/ul.h /usr/include/ctype.h \
  /usr/include/unistd.h /usr/include/x86_64-linux-gnu/bits/posix_opt.h \
  /usr/include/x86_64-linux-gnu/bits/environments.h \
@@ -166,13 +166,13 @@ driver.o: driver.cpp /usr/include/stdc-predef.h driver.h \
  /usr/include/x86_64-linux-gnu/bits/errno.h /usr/include/linux/errno.h \
  /usr/include/x86_64-linux-gnu/asm/errno.h \
  /usr/include/asm-generic/errno.h /usr/include/asm-generic/errno-base.h \
- /home/ubuntu/project/drlcar/PycharmProjects/autodriver/car-simulator/torcs-1.3.6/export/include/raceman.h \
- /home/ubuntu/project/drlcar/PycharmProjects/autodriver/car-simulator/torcs-1.3.6/export/include/graphic.h \
- /home/ubuntu/project/drlcar/PycharmProjects/autodriver/car-simulator/torcs-1.3.6/export/include/simu.h \
- /home/ubuntu/project/drlcar/PycharmProjects/autodriver/car-simulator/torcs-1.3.6/export/include/robottools.h \
- /home/ubuntu/project/drlcar/PycharmProjects/autodriver/car-simulator/torcs-1.3.6/export/include/robot.h \
- /home/ubuntu/project/drlcar/PycharmProjects/autodriver/car-simulator/torcs-1.3.6/export/include/portability.h \
- /home/ubuntu/project/drlcar/PycharmProjects/autodriver/car-simulator/torcs-1.3.6/config.h \
+ /home/test/PycharmProjects/autodriver/car-simulator/torcs-1.3.6/export/include/raceman.h \
+ /home/test/PycharmProjects/autodriver/car-simulator/torcs-1.3.6/export/include/graphic.h \
+ /home/test/PycharmProjects/autodriver/car-simulator/torcs-1.3.6/export/include/simu.h \
+ /home/test/PycharmProjects/autodriver/car-simulator/torcs-1.3.6/export/include/robottools.h \
+ /home/test/PycharmProjects/autodriver/car-simulator/torcs-1.3.6/export/include/robot.h \
+ /home/test/PycharmProjects/autodriver/car-simulator/torcs-1.3.6/export/include/portability.h \
+ /home/test/PycharmProjects/autodriver/car-simulator/torcs-1.3.6/config.h \
  opponent.h cardata.h pit.h spline.h learn.h strategy.h
 opponent.o: opponent.cpp /usr/include/stdc-predef.h opponent.h \
  /usr/include/stdio.h /usr/include/features.h \
@@ -214,7 +214,7 @@ opponent.o: opponent.cpp /usr/include/stdc-predef.h opponent.h \
  /usr/include/x86_64-linux-gnu/bits/nan.h \
  /usr/include/x86_64-linux-gnu/bits/mathdef.h \
  /usr/include/x86_64-linux-gnu/bits/mathcalls.h \
- /home/ubuntu/project/drlcar/PycharmProjects/autodriver/car-simulator/torcs-1.3.6/export/include/tgf.h \
+ /home/test/PycharmProjects/autodriver/car-simulator/torcs-1.3.6/export/include/tgf.h \
  /usr/include/x86_64-linux-gnu/sys/param.h \
  /usr/lib/gcc/x86_64-linux-gnu/5/include-fixed/limits.h \
  /usr/lib/gcc/x86_64-linux-gnu/5/include-fixed/syslimits.h \
@@ -233,14 +233,14 @@ opponent.o: opponent.cpp /usr/include/stdc-predef.h opponent.h \
  /usr/include/x86_64-linux-gnu/bits/param.h /usr/include/linux/param.h \
  /usr/include/x86_64-linux-gnu/asm/param.h \
  /usr/include/asm-generic/param.h /usr/include/assert.h \
- /home/ubuntu/project/drlcar/PycharmProjects/autodriver/car-simulator/torcs-1.3.6/export/include/osspec.h \
- /home/ubuntu/project/drlcar/PycharmProjects/autodriver/car-simulator/torcs-1.3.6/export/include/track.h \
- /home/ubuntu/project/drlcar/PycharmProjects/autodriver/car-simulator/torcs-1.3.6/export/include/tmath/linalg_t.h \
- /home/ubuntu/project/drlcar/PycharmProjects/autodriver/car-simulator/torcs-1.3.6/export/include/tmath/v2_t.h \
- /home/ubuntu/project/drlcar/PycharmProjects/autodriver/car-simulator/torcs-1.3.6/export/include/tmath/v3_t.h \
- /home/ubuntu/project/drlcar/PycharmProjects/autodriver/car-simulator/torcs-1.3.6/export/include/tmath/v4_t.h \
- /home/ubuntu/project/drlcar/PycharmProjects/autodriver/car-simulator/torcs-1.3.6/export/include/tmath/straight2_t.h \
- /home/ubuntu/project/drlcar/PycharmProjects/autodriver/car-simulator/torcs-1.3.6/export/include/car.h \
+ /home/test/PycharmProjects/autodriver/car-simulator/torcs-1.3.6/export/include/osspec.h \
+ /home/test/PycharmProjects/autodriver/car-simulator/torcs-1.3.6/export/include/track.h \
+ /home/test/PycharmProjects/autodriver/car-simulator/torcs-1.3.6/export/include/tmath/linalg_t.h \
+ /home/test/PycharmProjects/autodriver/car-simulator/torcs-1.3.6/export/include/tmath/v2_t.h \
+ /home/test/PycharmProjects/autodriver/car-simulator/torcs-1.3.6/export/include/tmath/v3_t.h \
+ /home/test/PycharmProjects/autodriver/car-simulator/torcs-1.3.6/export/include/tmath/v4_t.h \
+ /home/test/PycharmProjects/autodriver/car-simulator/torcs-1.3.6/export/include/tmath/straight2_t.h \
+ /home/test/PycharmProjects/autodriver/car-simulator/torcs-1.3.6/export/include/car.h \
  /usr/include/plib/sg.h /usr/include/plib/ul.h /usr/include/ctype.h \
  /usr/include/unistd.h /usr/include/x86_64-linux-gnu/bits/posix_opt.h \
  /usr/include/x86_64-linux-gnu/bits/environments.h \
@@ -254,14 +254,14 @@ opponent.o: opponent.cpp /usr/include/stdc-predef.h opponent.h \
  /usr/include/x86_64-linux-gnu/bits/errno.h /usr/include/linux/errno.h \
  /usr/include/x86_64-linux-gnu/asm/errno.h \
  /usr/include/asm-generic/errno.h /usr/include/asm-generic/errno-base.h \
- /home/ubuntu/project/drlcar/PycharmProjects/autodriver/car-simulator/torcs-1.3.6/export/include/raceman.h \
- /home/ubuntu/project/drlcar/PycharmProjects/autodriver/car-simulator/torcs-1.3.6/export/include/graphic.h \
- /home/ubuntu/project/drlcar/PycharmProjects/autodriver/car-simulator/torcs-1.3.6/export/include/simu.h \
- /home/ubuntu/project/drlcar/PycharmProjects/autodriver/car-simulator/torcs-1.3.6/export/include/robottools.h \
- /home/ubuntu/project/drlcar/PycharmProjects/autodriver/car-simulator/torcs-1.3.6/export/include/robot.h \
+ /home/test/PycharmProjects/autodriver/car-simulator/torcs-1.3.6/export/include/raceman.h \
+ /home/test/PycharmProjects/autodriver/car-simulator/torcs-1.3.6/export/include/graphic.h \
+ /home/test/PycharmProjects/autodriver/car-simulator/torcs-1.3.6/export/include/simu.h \
+ /home/test/PycharmProjects/autodriver/car-simulator/torcs-1.3.6/export/include/robottools.h \
+ /home/test/PycharmProjects/autodriver/car-simulator/torcs-1.3.6/export/include/robot.h \
  driver.h \
- /home/ubuntu/project/drlcar/PycharmProjects/autodriver/car-simulator/torcs-1.3.6/export/include/portability.h \
- /home/ubuntu/project/drlcar/PycharmProjects/autodriver/car-simulator/torcs-1.3.6/config.h \
+ /home/test/PycharmProjects/autodriver/car-simulator/torcs-1.3.6/export/include/portability.h \
+ /home/test/PycharmProjects/autodriver/car-simulator/torcs-1.3.6/config.h \
  pit.h spline.h learn.h strategy.h cardata.h
 spline.o: spline.cpp /usr/include/stdc-predef.h spline.h
 pit.o: pit.cpp /usr/include/stdc-predef.h pit.h driver.h \
@@ -304,7 +304,7 @@ pit.o: pit.cpp /usr/include/stdc-predef.h pit.h driver.h \
  /usr/include/x86_64-linux-gnu/bits/nan.h \
  /usr/include/x86_64-linux-gnu/bits/mathdef.h \
  /usr/include/x86_64-linux-gnu/bits/mathcalls.h \
- /home/ubuntu/project/drlcar/PycharmProjects/autodriver/car-simulator/torcs-1.3.6/export/include/tgf.h \
+ /home/test/PycharmProjects/autodriver/car-simulator/torcs-1.3.6/export/include/tgf.h \
  /usr/include/x86_64-linux-gnu/sys/param.h \
  /usr/lib/gcc/x86_64-linux-gnu/5/include-fixed/limits.h \
  /usr/lib/gcc/x86_64-linux-gnu/5/include-fixed/syslimits.h \
@@ -323,14 +323,14 @@ pit.o: pit.cpp /usr/include/stdc-predef.h pit.h driver.h \
  /usr/include/x86_64-linux-gnu/bits/param.h /usr/include/linux/param.h \
  /usr/include/x86_64-linux-gnu/asm/param.h \
  /usr/include/asm-generic/param.h /usr/include/assert.h \
- /home/ubuntu/project/drlcar/PycharmProjects/autodriver/car-simulator/torcs-1.3.6/export/include/osspec.h \
- /home/ubuntu/project/drlcar/PycharmProjects/autodriver/car-simulator/torcs-1.3.6/export/include/track.h \
- /home/ubuntu/project/drlcar/PycharmProjects/autodriver/car-simulator/torcs-1.3.6/export/include/tmath/linalg_t.h \
- /home/ubuntu/project/drlcar/PycharmProjects/autodriver/car-simulator/torcs-1.3.6/export/include/tmath/v2_t.h \
- /home/ubuntu/project/drlcar/PycharmProjects/autodriver/car-simulator/torcs-1.3.6/export/include/tmath/v3_t.h \
- /home/ubuntu/project/drlcar/PycharmProjects/autodriver/car-simulator/torcs-1.3.6/export/include/tmath/v4_t.h \
- /home/ubuntu/project/drlcar/PycharmProjects/autodriver/car-simulator/torcs-1.3.6/export/include/tmath/straight2_t.h \
- /home/ubuntu/project/drlcar/PycharmProjects/autodriver/car-simulator/torcs-1.3.6/export/include/car.h \
+ /home/test/PycharmProjects/autodriver/car-simulator/torcs-1.3.6/export/include/osspec.h \
+ /home/test/PycharmProjects/autodriver/car-simulator/torcs-1.3.6/export/include/track.h \
+ /home/test/PycharmProjects/autodriver/car-simulator/torcs-1.3.6/export/include/tmath/linalg_t.h \
+ /home/test/PycharmProjects/autodriver/car-simulator/torcs-1.3.6/export/include/tmath/v2_t.h \
+ /home/test/PycharmProjects/autodriver/car-simulator/torcs-1.3.6/export/include/tmath/v3_t.h \
+ /home/test/PycharmProjects/autodriver/car-simulator/torcs-1.3.6/export/include/tmath/v4_t.h \
+ /home/test/PycharmProjects/autodriver/car-simulator/torcs-1.3.6/export/include/tmath/straight2_t.h \
+ /home/test/PycharmProjects/autodriver/car-simulator/torcs-1.3.6/export/include/car.h \
  /usr/include/plib/sg.h /usr/include/plib/ul.h /usr/include/ctype.h \
  /usr/include/unistd.h /usr/include/x86_64-linux-gnu/bits/posix_opt.h \
  /usr/include/x86_64-linux-gnu/bits/environments.h \
@@ -344,13 +344,13 @@ pit.o: pit.cpp /usr/include/stdc-predef.h pit.h driver.h \
  /usr/include/x86_64-linux-gnu/bits/errno.h /usr/include/linux/errno.h \
  /usr/include/x86_64-linux-gnu/asm/errno.h \
  /usr/include/asm-generic/errno.h /usr/include/asm-generic/errno-base.h \
- /home/ubuntu/project/drlcar/PycharmProjects/autodriver/car-simulator/torcs-1.3.6/export/include/raceman.h \
- /home/ubuntu/project/drlcar/PycharmProjects/autodriver/car-simulator/torcs-1.3.6/export/include/graphic.h \
- /home/ubuntu/project/drlcar/PycharmProjects/autodriver/car-simulator/torcs-1.3.6/export/include/simu.h \
- /home/ubuntu/project/drlcar/PycharmProjects/autodriver/car-simulator/torcs-1.3.6/export/include/robottools.h \
- /home/ubuntu/project/drlcar/PycharmProjects/autodriver/car-simulator/torcs-1.3.6/export/include/robot.h \
- /home/ubuntu/project/drlcar/PycharmProjects/autodriver/car-simulator/torcs-1.3.6/export/include/portability.h \
- /home/ubuntu/project/drlcar/PycharmProjects/autodriver/car-simulator/torcs-1.3.6/config.h \
+ /home/test/PycharmProjects/autodriver/car-simulator/torcs-1.3.6/export/include/raceman.h \
+ /home/test/PycharmProjects/autodriver/car-simulator/torcs-1.3.6/export/include/graphic.h \
+ /home/test/PycharmProjects/autodriver/car-simulator/torcs-1.3.6/export/include/simu.h \
+ /home/test/PycharmProjects/autodriver/car-simulator/torcs-1.3.6/export/include/robottools.h \
+ /home/test/PycharmProjects/autodriver/car-simulator/torcs-1.3.6/export/include/robot.h \
+ /home/test/PycharmProjects/autodriver/car-simulator/torcs-1.3.6/export/include/portability.h \
+ /home/test/PycharmProjects/autodriver/car-simulator/torcs-1.3.6/config.h \
  opponent.h cardata.h learn.h strategy.h spline.h
 learn.o: learn.cpp /usr/include/stdc-predef.h learn.h \
  /usr/include/stdio.h /usr/include/features.h \
@@ -392,7 +392,7 @@ learn.o: learn.cpp /usr/include/stdc-predef.h learn.h \
  /usr/include/x86_64-linux-gnu/bits/nan.h \
  /usr/include/x86_64-linux-gnu/bits/mathdef.h \
  /usr/include/x86_64-linux-gnu/bits/mathcalls.h \
- /home/ubuntu/project/drlcar/PycharmProjects/autodriver/car-simulator/torcs-1.3.6/export/include/tgf.h \
+ /home/test/PycharmProjects/autodriver/car-simulator/torcs-1.3.6/export/include/tgf.h \
  /usr/include/x86_64-linux-gnu/sys/param.h \
  /usr/lib/gcc/x86_64-linux-gnu/5/include-fixed/limits.h \
  /usr/lib/gcc/x86_64-linux-gnu/5/include-fixed/syslimits.h \
@@ -411,14 +411,14 @@ learn.o: learn.cpp /usr/include/stdc-predef.h learn.h \
  /usr/include/x86_64-linux-gnu/bits/param.h /usr/include/linux/param.h \
  /usr/include/x86_64-linux-gnu/asm/param.h \
  /usr/include/asm-generic/param.h /usr/include/assert.h \
- /home/ubuntu/project/drlcar/PycharmProjects/autodriver/car-simulator/torcs-1.3.6/export/include/osspec.h \
- /home/ubuntu/project/drlcar/PycharmProjects/autodriver/car-simulator/torcs-1.3.6/export/include/track.h \
- /home/ubuntu/project/drlcar/PycharmProjects/autodriver/car-simulator/torcs-1.3.6/export/include/tmath/linalg_t.h \
- /home/ubuntu/project/drlcar/PycharmProjects/autodriver/car-simulator/torcs-1.3.6/export/include/tmath/v2_t.h \
- /home/ubuntu/project/drlcar/PycharmProjects/autodriver/car-simulator/torcs-1.3.6/export/include/tmath/v3_t.h \
- /home/ubuntu/project/drlcar/PycharmProjects/autodriver/car-simulator/torcs-1.3.6/export/include/tmath/v4_t.h \
- /home/ubuntu/project/drlcar/PycharmProjects/autodriver/car-simulator/torcs-1.3.6/export/include/tmath/straight2_t.h \
- /home/ubuntu/project/drlcar/PycharmProjects/autodriver/car-simulator/torcs-1.3.6/export/include/car.h \
+ /home/test/PycharmProjects/autodriver/car-simulator/torcs-1.3.6/export/include/osspec.h \
+ /home/test/PycharmProjects/autodriver/car-simulator/torcs-1.3.6/export/include/track.h \
+ /home/test/PycharmProjects/autodriver/car-simulator/torcs-1.3.6/export/include/tmath/linalg_t.h \
+ /home/test/PycharmProjects/autodriver/car-simulator/torcs-1.3.6/export/include/tmath/v2_t.h \
+ /home/test/PycharmProjects/autodriver/car-simulator/torcs-1.3.6/export/include/tmath/v3_t.h \
+ /home/test/PycharmProjects/autodriver/car-simulator/torcs-1.3.6/export/include/tmath/v4_t.h \
+ /home/test/PycharmProjects/autodriver/car-simulator/torcs-1.3.6/export/include/tmath/straight2_t.h \
+ /home/test/PycharmProjects/autodriver/car-simulator/torcs-1.3.6/export/include/car.h \
  /usr/include/plib/sg.h /usr/include/plib/ul.h /usr/include/ctype.h \
  /usr/include/unistd.h /usr/include/x86_64-linux-gnu/bits/posix_opt.h \
  /usr/include/x86_64-linux-gnu/bits/environments.h \
@@ -432,13 +432,13 @@ learn.o: learn.cpp /usr/include/stdc-predef.h learn.h \
  /usr/include/x86_64-linux-gnu/bits/errno.h /usr/include/linux/errno.h \
  /usr/include/x86_64-linux-gnu/asm/errno.h \
  /usr/include/asm-generic/errno.h /usr/include/asm-generic/errno-base.h \
- /home/ubuntu/project/drlcar/PycharmProjects/autodriver/car-simulator/torcs-1.3.6/export/include/raceman.h \
- /home/ubuntu/project/drlcar/PycharmProjects/autodriver/car-simulator/torcs-1.3.6/export/include/graphic.h \
- /home/ubuntu/project/drlcar/PycharmProjects/autodriver/car-simulator/torcs-1.3.6/export/include/simu.h \
- /home/ubuntu/project/drlcar/PycharmProjects/autodriver/car-simulator/torcs-1.3.6/export/include/robottools.h \
- /home/ubuntu/project/drlcar/PycharmProjects/autodriver/car-simulator/torcs-1.3.6/export/include/robot.h \
- /home/ubuntu/project/drlcar/PycharmProjects/autodriver/car-simulator/torcs-1.3.6/export/include/portability.h \
- /home/ubuntu/project/drlcar/PycharmProjects/autodriver/car-simulator/torcs-1.3.6/config.h
+ /home/test/PycharmProjects/autodriver/car-simulator/torcs-1.3.6/export/include/raceman.h \
+ /home/test/PycharmProjects/autodriver/car-simulator/torcs-1.3.6/export/include/graphic.h \
+ /home/test/PycharmProjects/autodriver/car-simulator/torcs-1.3.6/export/include/simu.h \
+ /home/test/PycharmProjects/autodriver/car-simulator/torcs-1.3.6/export/include/robottools.h \
+ /home/test/PycharmProjects/autodriver/car-simulator/torcs-1.3.6/export/include/robot.h \
+ /home/test/PycharmProjects/autodriver/car-simulator/torcs-1.3.6/export/include/portability.h \
+ /home/test/PycharmProjects/autodriver/car-simulator/torcs-1.3.6/config.h
 strategy.o: strategy.cpp /usr/include/stdc-predef.h strategy.h \
  /usr/include/stdio.h /usr/include/features.h \
  /usr/include/x86_64-linux-gnu/sys/cdefs.h \
@@ -479,7 +479,7 @@ strategy.o: strategy.cpp /usr/include/stdc-predef.h strategy.h \
  /usr/include/x86_64-linux-gnu/bits/nan.h \
  /usr/include/x86_64-linux-gnu/bits/mathdef.h \
  /usr/include/x86_64-linux-gnu/bits/mathcalls.h \
- /home/ubuntu/project/drlcar/PycharmProjects/autodriver/car-simulator/torcs-1.3.6/export/include/tgf.h \
+ /home/test/PycharmProjects/autodriver/car-simulator/torcs-1.3.6/export/include/tgf.h \
  /usr/include/x86_64-linux-gnu/sys/param.h \
  /usr/lib/gcc/x86_64-linux-gnu/5/include-fixed/limits.h \
  /usr/lib/gcc/x86_64-linux-gnu/5/include-fixed/syslimits.h \
@@ -498,14 +498,14 @@ strategy.o: strategy.cpp /usr/include/stdc-predef.h strategy.h \
  /usr/include/x86_64-linux-gnu/bits/param.h /usr/include/linux/param.h \
  /usr/include/x86_64-linux-gnu/asm/param.h \
  /usr/include/asm-generic/param.h /usr/include/assert.h \
- /home/ubuntu/project/drlcar/PycharmProjects/autodriver/car-simulator/torcs-1.3.6/export/include/osspec.h \
- /home/ubuntu/project/drlcar/PycharmProjects/autodriver/car-simulator/torcs-1.3.6/export/include/track.h \
- /home/ubuntu/project/drlcar/PycharmProjects/autodriver/car-simulator/torcs-1.3.6/export/include/tmath/linalg_t.h \
- /home/ubuntu/project/drlcar/PycharmProjects/autodriver/car-simulator/torcs-1.3.6/export/include/tmath/v2_t.h \
- /home/ubuntu/project/drlcar/PycharmProjects/autodriver/car-simulator/torcs-1.3.6/export/include/tmath/v3_t.h \
- /home/ubuntu/project/drlcar/PycharmProjects/autodriver/car-simulator/torcs-1.3.6/export/include/tmath/v4_t.h \
- /home/ubuntu/project/drlcar/PycharmProjects/autodriver/car-simulator/torcs-1.3.6/export/include/tmath/straight2_t.h \
- /home/ubuntu/project/drlcar/PycharmProjects/autodriver/car-simulator/torcs-1.3.6/export/include/car.h \
+ /home/test/PycharmProjects/autodriver/car-simulator/torcs-1.3.6/export/include/osspec.h \
+ /home/test/PycharmProjects/autodriver/car-simulator/torcs-1.3.6/export/include/track.h \
+ /home/test/PycharmProjects/autodriver/car-simulator/torcs-1.3.6/export/include/tmath/linalg_t.h \
+ /home/test/PycharmProjects/autodriver/car-simulator/torcs-1.3.6/export/include/tmath/v2_t.h \
+ /home/test/PycharmProjects/autodriver/car-simulator/torcs-1.3.6/export/include/tmath/v3_t.h \
+ /home/test/PycharmProjects/autodriver/car-simulator/torcs-1.3.6/export/include/tmath/v4_t.h \
+ /home/test/PycharmProjects/autodriver/car-simulator/torcs-1.3.6/export/include/tmath/straight2_t.h \
+ /home/test/PycharmProjects/autodriver/car-simulator/torcs-1.3.6/export/include/car.h \
  /usr/include/plib/sg.h /usr/include/plib/ul.h /usr/include/ctype.h \
  /usr/include/unistd.h /usr/include/x86_64-linux-gnu/bits/posix_opt.h \
  /usr/include/x86_64-linux-gnu/bits/environments.h \
@@ -519,14 +519,14 @@ strategy.o: strategy.cpp /usr/include/stdc-predef.h strategy.h \
  /usr/include/x86_64-linux-gnu/bits/errno.h /usr/include/linux/errno.h \
  /usr/include/x86_64-linux-gnu/asm/errno.h \
  /usr/include/asm-generic/errno.h /usr/include/asm-generic/errno-base.h \
- /home/ubuntu/project/drlcar/PycharmProjects/autodriver/car-simulator/torcs-1.3.6/export/include/raceman.h \
- /home/ubuntu/project/drlcar/PycharmProjects/autodriver/car-simulator/torcs-1.3.6/export/include/graphic.h \
- /home/ubuntu/project/drlcar/PycharmProjects/autodriver/car-simulator/torcs-1.3.6/export/include/simu.h \
- /home/ubuntu/project/drlcar/PycharmProjects/autodriver/car-simulator/torcs-1.3.6/export/include/robottools.h \
- /home/ubuntu/project/drlcar/PycharmProjects/autodriver/car-simulator/torcs-1.3.6/export/include/robot.h \
+ /home/test/PycharmProjects/autodriver/car-simulator/torcs-1.3.6/export/include/raceman.h \
+ /home/test/PycharmProjects/autodriver/car-simulator/torcs-1.3.6/export/include/graphic.h \
+ /home/test/PycharmProjects/autodriver/car-simulator/torcs-1.3.6/export/include/simu.h \
+ /home/test/PycharmProjects/autodriver/car-simulator/torcs-1.3.6/export/include/robottools.h \
+ /home/test/PycharmProjects/autodriver/car-simulator/torcs-1.3.6/export/include/robot.h \
  driver.h \
- /home/ubuntu/project/drlcar/PycharmProjects/autodriver/car-simulator/torcs-1.3.6/export/include/portability.h \
- /home/ubuntu/project/drlcar/PycharmProjects/autodriver/car-simulator/torcs-1.3.6/config.h \
+ /home/test/PycharmProjects/autodriver/car-simulator/torcs-1.3.6/export/include/portability.h \
+ /home/test/PycharmProjects/autodriver/car-simulator/torcs-1.3.6/config.h \
  opponent.h cardata.h pit.h spline.h learn.h
 cardata.o: cardata.cpp /usr/include/stdc-predef.h cardata.h \
  /usr/include/stdio.h /usr/include/features.h \
@@ -550,9 +550,9 @@ cardata.o: cardata.cpp /usr/include/stdc-predef.h cardata.h \
  /usr/include/x86_64-linux-gnu/bits/nan.h \
  /usr/include/x86_64-linux-gnu/bits/mathdef.h \
  /usr/include/x86_64-linux-gnu/bits/mathcalls.h \
- /home/ubuntu/project/drlcar/PycharmProjects/autodriver/car-simulator/torcs-1.3.6/export/include/car.h \
- /home/ubuntu/project/drlcar/PycharmProjects/autodriver/car-simulator/torcs-1.3.6/export/include/track.h \
- /home/ubuntu/project/drlcar/PycharmProjects/autodriver/car-simulator/torcs-1.3.6/export/include/tgf.h \
+ /home/test/PycharmProjects/autodriver/car-simulator/torcs-1.3.6/export/include/car.h \
+ /home/test/PycharmProjects/autodriver/car-simulator/torcs-1.3.6/export/include/track.h \
+ /home/test/PycharmProjects/autodriver/car-simulator/torcs-1.3.6/export/include/tgf.h \
  /usr/include/x86_64-linux-gnu/sys/param.h \
  /usr/include/x86_64-linux-gnu/sys/types.h /usr/include/time.h \
  /usr/include/endian.h /usr/include/x86_64-linux-gnu/bits/endian.h \
@@ -589,12 +589,12 @@ cardata.o: cardata.cpp /usr/include/stdc-predef.h cardata.h \
  /usr/include/x86_64-linux-gnu/c++/5/bits/os_defines.h \
  /usr/include/x86_64-linux-gnu/c++/5/bits/cpu_defines.h \
  /usr/include/string.h \
- /home/ubuntu/project/drlcar/PycharmProjects/autodriver/car-simulator/torcs-1.3.6/export/include/osspec.h \
- /home/ubuntu/project/drlcar/PycharmProjects/autodriver/car-simulator/torcs-1.3.6/export/include/tmath/linalg_t.h \
- /home/ubuntu/project/drlcar/PycharmProjects/autodriver/car-simulator/torcs-1.3.6/export/include/tmath/v2_t.h \
- /home/ubuntu/project/drlcar/PycharmProjects/autodriver/car-simulator/torcs-1.3.6/export/include/tmath/v3_t.h \
- /home/ubuntu/project/drlcar/PycharmProjects/autodriver/car-simulator/torcs-1.3.6/export/include/tmath/v4_t.h \
- /home/ubuntu/project/drlcar/PycharmProjects/autodriver/car-simulator/torcs-1.3.6/export/include/tmath/straight2_t.h \
+ /home/test/PycharmProjects/autodriver/car-simulator/torcs-1.3.6/export/include/osspec.h \
+ /home/test/PycharmProjects/autodriver/car-simulator/torcs-1.3.6/export/include/tmath/linalg_t.h \
+ /home/test/PycharmProjects/autodriver/car-simulator/torcs-1.3.6/export/include/tmath/v2_t.h \
+ /home/test/PycharmProjects/autodriver/car-simulator/torcs-1.3.6/export/include/tmath/v3_t.h \
+ /home/test/PycharmProjects/autodriver/car-simulator/torcs-1.3.6/export/include/tmath/v4_t.h \
+ /home/test/PycharmProjects/autodriver/car-simulator/torcs-1.3.6/export/include/tmath/straight2_t.h \
  /usr/include/plib/sg.h /usr/include/plib/ul.h /usr/include/ctype.h \
  /usr/include/unistd.h /usr/include/x86_64-linux-gnu/bits/posix_opt.h \
  /usr/include/x86_64-linux-gnu/bits/environments.h \
@@ -608,7 +608,7 @@ cardata.o: cardata.cpp /usr/include/stdc-predef.h cardata.h \
  /usr/include/x86_64-linux-gnu/bits/errno.h /usr/include/linux/errno.h \
  /usr/include/x86_64-linux-gnu/asm/errno.h \
  /usr/include/asm-generic/errno.h /usr/include/asm-generic/errno-base.h \
- /home/ubuntu/project/drlcar/PycharmProjects/autodriver/car-simulator/torcs-1.3.6/export/include/robottools.h \
- /home/ubuntu/project/drlcar/PycharmProjects/autodriver/car-simulator/torcs-1.3.6/export/include/raceman.h \
- /home/ubuntu/project/drlcar/PycharmProjects/autodriver/car-simulator/torcs-1.3.6/export/include/graphic.h \
- /home/ubuntu/project/drlcar/PycharmProjects/autodriver/car-simulator/torcs-1.3.6/export/include/simu.h
+ /home/test/PycharmProjects/autodriver/car-simulator/torcs-1.3.6/export/include/robottools.h \
+ /home/test/PycharmProjects/autodriver/car-simulator/torcs-1.3.6/export/include/raceman.h \
+ /home/test/PycharmProjects/autodriver/car-simulator/torcs-1.3.6/export/include/graphic.h \
+ /home/test/PycharmProjects/autodriver/car-simulator/torcs-1.3.6/export/include/simu.h

@@ -70,6 +70,7 @@ class InitServerParams;
 class DSStatus;
 class TensorInfo;
 class TensorInfos;
+class PacketStatistic;
 class BatchDataProcessorStatus;
 class DataServer;
 class DataServerPrx;
@@ -507,6 +508,42 @@ public:
     ::DataFlow::TensorInfoList predict;
 };
 
+class PacketStatistic : public ::Ice::ValueHelper<PacketStatistic, Ice::Value>
+{
+public:
+
+    virtual ~PacketStatistic();
+
+    PacketStatistic() = default;
+
+    PacketStatistic(const PacketStatistic&) = default;
+    PacketStatistic(PacketStatistic&&) = default;
+    PacketStatistic& operator=(const PacketStatistic&) = default;
+    PacketStatistic& operator=(PacketStatistic&&) = default;
+
+    PacketStatistic(long long int iceP_packetRecvCount, long long int iceP_timeLastPacketRecved, long long int iceP_packetRecvProcessedCount, long long int iceP_packetSendCount, long long int iceP_packetSendInQueueCount) :
+        packetRecvCount(iceP_packetRecvCount),
+        timeLastPacketRecved(iceP_timeLastPacketRecved),
+        packetRecvProcessedCount(iceP_packetRecvProcessedCount),
+        packetSendCount(iceP_packetSendCount),
+        packetSendInQueueCount(iceP_packetSendInQueueCount)
+    {
+    }
+
+    std::tuple<const long long int&, const long long int&, const long long int&, const long long int&, const long long int&> ice_tuple() const
+    {
+        return std::tie(packetRecvCount, timeLastPacketRecved, packetRecvProcessedCount, packetSendCount, packetSendInQueueCount);
+    }
+
+    static const ::std::string& ice_staticId();
+
+    long long int packetRecvCount = 0LL;
+    long long int timeLastPacketRecved = 0LL;
+    long long int packetRecvProcessedCount = 0LL;
+    long long int packetSendCount = 0LL;
+    long long int packetSendInQueueCount = 0LL;
+};
+
 class BatchDataProcessorStatus : public ::Ice::ValueHelper<BatchDataProcessorStatus, Ice::Value>
 {
 public:
@@ -520,24 +557,26 @@ public:
     BatchDataProcessorStatus& operator=(const BatchDataProcessorStatus&) = default;
     BatchDataProcessorStatus& operator=(BatchDataProcessorStatus&&) = default;
 
-    BatchDataProcessorStatus(int iceP_batchIdxStart, int iceP_batchSize, long long int iceP_packetCount, const ::std::shared_ptr<::DataFlow::TensorInfos>& iceP_tensorInfos) :
+    BatchDataProcessorStatus(int iceP_batchIdxStart, int iceP_batchSize, const ::std::shared_ptr<::DataFlow::PacketStatistic>& iceP_packetTrain, const ::std::shared_ptr<::DataFlow::PacketStatistic>& iceP_packetPredict, const ::std::shared_ptr<::DataFlow::TensorInfos>& iceP_tensorInfos) :
         batchIdxStart(iceP_batchIdxStart),
         batchSize(iceP_batchSize),
-        packetCount(iceP_packetCount),
+        packetTrain(::std::move(iceP_packetTrain)),
+        packetPredict(::std::move(iceP_packetPredict)),
         tensorInfos(::std::move(iceP_tensorInfos))
     {
     }
 
-    std::tuple<const int&, const int&, const long long int&, const ::std::shared_ptr<::DataFlow::TensorInfos>&> ice_tuple() const
+    std::tuple<const int&, const int&, const ::std::shared_ptr<::DataFlow::PacketStatistic>&, const ::std::shared_ptr<::DataFlow::PacketStatistic>&, const ::std::shared_ptr<::DataFlow::TensorInfos>&> ice_tuple() const
     {
-        return std::tie(batchIdxStart, batchSize, packetCount, tensorInfos);
+        return std::tie(batchIdxStart, batchSize, packetTrain, packetPredict, tensorInfos);
     }
 
     static const ::std::string& ice_staticId();
 
     int batchIdxStart;
     int batchSize;
-    long long int packetCount = 0LL;
+    ::std::shared_ptr<::DataFlow::PacketStatistic> packetTrain;
+    ::std::shared_ptr<::DataFlow::PacketStatistic> packetPredict;
     ::std::shared_ptr<::DataFlow::TensorInfos> tensorInfos;
 };
 
@@ -884,11 +923,20 @@ struct StreamReader<::DataFlow::TensorInfos, S>
 };
 
 template<typename S>
+struct StreamReader<::DataFlow::PacketStatistic, S>
+{
+    static void read(S* istr, ::DataFlow::PacketStatistic& v)
+    {
+        istr->readAll(v.packetRecvCount, v.timeLastPacketRecved, v.packetRecvProcessedCount, v.packetSendCount, v.packetSendInQueueCount);
+    }
+};
+
+template<typename S>
 struct StreamReader<::DataFlow::BatchDataProcessorStatus, S>
 {
     static void read(S* istr, ::DataFlow::BatchDataProcessorStatus& v)
     {
-        istr->readAll(v.batchIdxStart, v.batchSize, v.packetCount, v.tensorInfos);
+        istr->readAll(v.batchIdxStart, v.batchSize, v.packetTrain, v.packetPredict, v.tensorInfos);
     }
 };
 
@@ -928,6 +976,8 @@ using DSStatusPtr = ::std::shared_ptr<DSStatus>;
 using TensorInfoPtr = ::std::shared_ptr<TensorInfo>;
 
 using TensorInfosPtr = ::std::shared_ptr<TensorInfos>;
+
+using PacketStatisticPtr = ::std::shared_ptr<PacketStatistic>;
 
 using BatchDataProcessorStatusPtr = ::std::shared_ptr<BatchDataProcessorStatus>;
 
@@ -992,6 +1042,10 @@ void _readProxy(::Ice::InputStream*, ::IceInternal::ProxyHandle< ::IceProxy::Dat
 class TensorInfos;
 void _readProxy(::Ice::InputStream*, ::IceInternal::ProxyHandle< ::IceProxy::DataFlow::TensorInfos>&);
 ::IceProxy::Ice::Object* upCast(::IceProxy::DataFlow::TensorInfos*);
+
+class PacketStatistic;
+void _readProxy(::Ice::InputStream*, ::IceInternal::ProxyHandle< ::IceProxy::DataFlow::PacketStatistic>&);
+::IceProxy::Ice::Object* upCast(::IceProxy::DataFlow::PacketStatistic*);
 
 class BatchDataProcessorStatus;
 void _readProxy(::Ice::InputStream*, ::IceInternal::ProxyHandle< ::IceProxy::DataFlow::BatchDataProcessorStatus>&);
@@ -1092,6 +1146,13 @@ typedef ::IceInternal::Handle< ::DataFlow::TensorInfos> TensorInfosPtr;
 typedef ::IceInternal::ProxyHandle< ::IceProxy::DataFlow::TensorInfos> TensorInfosPrx;
 typedef TensorInfosPrx TensorInfosPrxPtr;
 void _icePatchObjectPtr(TensorInfosPtr&, const ::Ice::ObjectPtr&);
+
+class PacketStatistic;
+::Ice::Object* upCast(::DataFlow::PacketStatistic*);
+typedef ::IceInternal::Handle< ::DataFlow::PacketStatistic> PacketStatisticPtr;
+typedef ::IceInternal::ProxyHandle< ::IceProxy::DataFlow::PacketStatistic> PacketStatisticPrx;
+typedef PacketStatisticPrx PacketStatisticPrxPtr;
+void _icePatchObjectPtr(PacketStatisticPtr&, const ::Ice::ObjectPtr&);
 
 class BatchDataProcessorStatus;
 ::Ice::Object* upCast(::DataFlow::BatchDataProcessorStatus*);
@@ -1330,6 +1391,17 @@ protected:
 };
 
 class TensorInfos : public virtual ::Ice::Proxy<TensorInfos, ::IceProxy::Ice::Object>
+{
+public:
+
+    static const ::std::string& ice_staticId();
+
+protected:
+
+    virtual ::IceProxy::Ice::Object* _newInstance() const;
+};
+
+class PacketStatistic : public virtual ::Ice::Proxy<PacketStatistic, ::IceProxy::Ice::Object>
 {
 public:
 
@@ -2154,6 +2226,68 @@ inline bool operator<(const TensorInfos& lhs, const TensorInfos& rhs)
     return static_cast<const ::Ice::Object&>(lhs) < static_cast<const ::Ice::Object&>(rhs);
 }
 
+class PacketStatistic : public virtual ::Ice::Object
+{
+public:
+
+    typedef PacketStatisticPrx ProxyType;
+    typedef PacketStatisticPtr PointerType;
+
+    virtual ~PacketStatistic();
+
+    PacketStatistic() :
+        packetRecvCount(ICE_INT64(0)),
+        timeLastPacketRecved(ICE_INT64(0)),
+        packetRecvProcessedCount(ICE_INT64(0)),
+        packetSendCount(ICE_INT64(0)),
+        packetSendInQueueCount(ICE_INT64(0))
+    {
+    }
+
+    PacketStatistic(::Ice::Long iceP_packetRecvCount, ::Ice::Long iceP_timeLastPacketRecved, ::Ice::Long iceP_packetRecvProcessedCount, ::Ice::Long iceP_packetSendCount, ::Ice::Long iceP_packetSendInQueueCount) :
+        packetRecvCount(iceP_packetRecvCount),
+        timeLastPacketRecved(iceP_timeLastPacketRecved),
+        packetRecvProcessedCount(iceP_packetRecvProcessedCount),
+        packetSendCount(iceP_packetSendCount),
+        packetSendInQueueCount(iceP_packetSendInQueueCount)
+    {
+    }
+
+    virtual ::Ice::ObjectPtr ice_clone() const;
+
+    virtual bool ice_isA(const ::std::string&, const ::Ice::Current& = ::Ice::emptyCurrent) const;
+    virtual ::std::vector< ::std::string> ice_ids(const ::Ice::Current& = ::Ice::emptyCurrent) const;
+    virtual const ::std::string& ice_id(const ::Ice::Current& = ::Ice::emptyCurrent) const;
+
+    static const ::std::string& ice_staticId();
+
+    static ::Ice::ValueFactoryPtr ice_factory();
+
+protected:
+
+    virtual void _iceWriteImpl(::Ice::OutputStream*) const;
+    virtual void _iceReadImpl(::Ice::InputStream*);
+
+public:
+
+    ::Ice::Long packetRecvCount;
+    ::Ice::Long timeLastPacketRecved;
+    ::Ice::Long packetRecvProcessedCount;
+    ::Ice::Long packetSendCount;
+    ::Ice::Long packetSendInQueueCount;
+};
+static ::Ice::ValueFactoryPtr _iceS_PacketStatistic_init = ::DataFlow::PacketStatistic::ice_factory();
+
+inline bool operator==(const PacketStatistic& lhs, const PacketStatistic& rhs)
+{
+    return static_cast<const ::Ice::Object&>(lhs) == static_cast<const ::Ice::Object&>(rhs);
+}
+
+inline bool operator<(const PacketStatistic& lhs, const PacketStatistic& rhs)
+{
+    return static_cast<const ::Ice::Object&>(lhs) < static_cast<const ::Ice::Object&>(rhs);
+}
+
 class BatchDataProcessorStatus : public virtual ::Ice::Object, public ::IceInternal::GCObject
 {
 public:
@@ -2163,15 +2297,15 @@ public:
 
     virtual ~BatchDataProcessorStatus();
 
-    BatchDataProcessorStatus() :
-        packetCount(ICE_INT64(0))
+    BatchDataProcessorStatus()
     {
     }
 
-    BatchDataProcessorStatus(::Ice::Int iceP_batchIdxStart, ::Ice::Int iceP_batchSize, ::Ice::Long iceP_packetCount, const ::DataFlow::TensorInfosPtr& iceP_tensorInfos) :
+    BatchDataProcessorStatus(::Ice::Int iceP_batchIdxStart, ::Ice::Int iceP_batchSize, const ::DataFlow::PacketStatisticPtr& iceP_packetTrain, const ::DataFlow::PacketStatisticPtr& iceP_packetPredict, const ::DataFlow::TensorInfosPtr& iceP_tensorInfos) :
         batchIdxStart(iceP_batchIdxStart),
         batchSize(iceP_batchSize),
-        packetCount(iceP_packetCount),
+        packetTrain(iceP_packetTrain),
+        packetPredict(iceP_packetPredict),
         tensorInfos(iceP_tensorInfos)
     {
     }
@@ -2196,7 +2330,8 @@ public:
 
     ::Ice::Int batchIdxStart;
     ::Ice::Int batchSize;
-    ::Ice::Long packetCount;
+    ::DataFlow::PacketStatisticPtr packetTrain;
+    ::DataFlow::PacketStatisticPtr packetPredict;
     ::DataFlow::TensorInfosPtr tensorInfos;
 };
 static ::Ice::ValueFactoryPtr _iceS_BatchDataProcessorStatus_init = ::DataFlow::BatchDataProcessorStatus::ice_factory();
@@ -2546,13 +2681,40 @@ struct StreamReader< ::DataFlow::TensorInfos, S>
 };
 
 template<typename S>
+struct StreamWriter< ::DataFlow::PacketStatistic, S>
+{
+    static void write(S* ostr, const ::DataFlow::PacketStatistic& v)
+    {
+        ostr->write(v.packetRecvCount);
+        ostr->write(v.timeLastPacketRecved);
+        ostr->write(v.packetRecvProcessedCount);
+        ostr->write(v.packetSendCount);
+        ostr->write(v.packetSendInQueueCount);
+    }
+};
+
+template<typename S>
+struct StreamReader< ::DataFlow::PacketStatistic, S>
+{
+    static void read(S* istr, ::DataFlow::PacketStatistic& v)
+    {
+        istr->read(v.packetRecvCount);
+        istr->read(v.timeLastPacketRecved);
+        istr->read(v.packetRecvProcessedCount);
+        istr->read(v.packetSendCount);
+        istr->read(v.packetSendInQueueCount);
+    }
+};
+
+template<typename S>
 struct StreamWriter< ::DataFlow::BatchDataProcessorStatus, S>
 {
     static void write(S* ostr, const ::DataFlow::BatchDataProcessorStatus& v)
     {
         ostr->write(v.batchIdxStart);
         ostr->write(v.batchSize);
-        ostr->write(v.packetCount);
+        ostr->write(v.packetTrain);
+        ostr->write(v.packetPredict);
         ostr->write(v.tensorInfos);
     }
 };
@@ -2564,7 +2726,8 @@ struct StreamReader< ::DataFlow::BatchDataProcessorStatus, S>
     {
         istr->read(v.batchIdxStart);
         istr->read(v.batchSize);
-        istr->read(v.packetCount);
+        istr->read(v.packetTrain);
+        istr->read(v.packetPredict);
         istr->read(v.tensorInfos);
     }
 };

@@ -86,6 +86,8 @@ const ::IceInternal::DefaultValueFactoryInit<::DataFlow::TensorInfo> iceC_DataFl
 
 const ::IceInternal::DefaultValueFactoryInit<::DataFlow::TensorInfos> iceC_DataFlow_TensorInfos_init("::DataFlow::TensorInfos");
 
+const ::IceInternal::DefaultValueFactoryInit<::DataFlow::PacketStatistic> iceC_DataFlow_PacketStatistic_init("::DataFlow::PacketStatistic");
+
 const ::IceInternal::DefaultValueFactoryInit<::DataFlow::BatchDataProcessorStatus> iceC_DataFlow_BatchDataProcessorStatus_init("::DataFlow::BatchDataProcessorStatus");
 
 const ::IceInternal::DefaultUserExceptionFactoryInit<::DataFlow::ExceptionClosed> iceC_DataFlow_ExceptionClosed_init("::DataFlow::ExceptionClosed");
@@ -508,6 +510,17 @@ const ::std::string&
 DataFlow::TensorInfos::ice_staticId()
 {
     static const ::std::string typeId = "::DataFlow::TensorInfos";
+    return typeId;
+}
+
+DataFlow::PacketStatistic::~PacketStatistic()
+{
+}
+
+const ::std::string&
+DataFlow::PacketStatistic::ice_staticId()
+{
+    static const ::std::string typeId = "::DataFlow::PacketStatistic";
     return typeId;
 }
 
@@ -1067,6 +1080,35 @@ const ::std::string&
 IceProxy::DataFlow::TensorInfos::ice_staticId()
 {
     return ::DataFlow::TensorInfos::ice_staticId();
+}
+::IceProxy::Ice::Object* ::IceProxy::DataFlow::upCast(::IceProxy::DataFlow::PacketStatistic* p) { return p; }
+
+void
+::IceProxy::DataFlow::_readProxy(::Ice::InputStream* istr, ::IceInternal::ProxyHandle< ::IceProxy::DataFlow::PacketStatistic>& v)
+{
+    ::Ice::ObjectPrx proxy;
+    istr->read(proxy);
+    if(!proxy)
+    {
+        v = 0;
+    }
+    else
+    {
+        v = new ::IceProxy::DataFlow::PacketStatistic;
+        v->_copyFrom(proxy);
+    }
+}
+
+::IceProxy::Ice::Object*
+IceProxy::DataFlow::PacketStatistic::_newInstance() const
+{
+    return new PacketStatistic;
+}
+
+const ::std::string&
+IceProxy::DataFlow::PacketStatistic::ice_staticId()
+{
+    return ::DataFlow::PacketStatistic::ice_staticId();
 }
 ::IceProxy::Ice::Object* ::IceProxy::DataFlow::upCast(::IceProxy::DataFlow::BatchDataProcessorStatus* p) { return p; }
 
@@ -2455,6 +2497,95 @@ DataFlow::_icePatchObjectPtr(TensorInfosPtr& handle, const ::Ice::ObjectPtr& v)
     }
 }
 
+DataFlow::PacketStatistic::~PacketStatistic()
+{
+}
+
+::Ice::Object* DataFlow::upCast(::DataFlow::PacketStatistic* p) { return p; }
+
+::Ice::ObjectPtr
+DataFlow::PacketStatistic::ice_clone() const
+{
+    ::Ice::Object* p = new PacketStatistic(*this);
+    return p;
+}
+
+namespace
+{
+const ::std::string iceC_DataFlow_PacketStatistic_ids[2] =
+{
+    "::DataFlow::PacketStatistic",
+    "::Ice::Object"
+};
+
+}
+
+bool
+DataFlow::PacketStatistic::ice_isA(const ::std::string& s, const ::Ice::Current&) const
+{
+    return ::std::binary_search(iceC_DataFlow_PacketStatistic_ids, iceC_DataFlow_PacketStatistic_ids + 2, s);
+}
+
+::std::vector< ::std::string>
+DataFlow::PacketStatistic::ice_ids(const ::Ice::Current&) const
+{
+    return ::std::vector< ::std::string>(&iceC_DataFlow_PacketStatistic_ids[0], &iceC_DataFlow_PacketStatistic_ids[2]);
+}
+
+const ::std::string&
+DataFlow::PacketStatistic::ice_id(const ::Ice::Current&) const
+{
+    return ice_staticId();
+}
+
+const ::std::string&
+DataFlow::PacketStatistic::ice_staticId()
+{
+#ifdef ICE_HAS_THREAD_SAFE_LOCAL_STATIC
+    static const ::std::string typeId = "::DataFlow::PacketStatistic";
+    return typeId;
+#else
+    return iceC_DataFlow_PacketStatistic_ids[0];
+#endif
+}
+
+void
+DataFlow::PacketStatistic::_iceWriteImpl(::Ice::OutputStream* ostr) const
+{
+    ostr->startSlice(ice_staticId(), -1, true);
+    Ice::StreamWriter< ::DataFlow::PacketStatistic, ::Ice::OutputStream>::write(ostr, *this);
+    ostr->endSlice();
+}
+
+void
+DataFlow::PacketStatistic::_iceReadImpl(::Ice::InputStream* istr)
+{
+    istr->startSlice();
+    Ice::StreamReader< ::DataFlow::PacketStatistic, ::Ice::InputStream>::read(istr, *this);
+    istr->endSlice();
+}
+
+namespace
+{
+const ::IceInternal::DefaultValueFactoryInit< ::DataFlow::PacketStatistic> iceC_DataFlow_PacketStatistic_init("::DataFlow::PacketStatistic");
+}
+
+::Ice::ValueFactoryPtr
+DataFlow::PacketStatistic::ice_factory()
+{
+    return ::IceInternal::factoryTable->getValueFactory(::DataFlow::PacketStatistic::ice_staticId());
+}
+
+void
+DataFlow::_icePatchObjectPtr(PacketStatisticPtr& handle, const ::Ice::ObjectPtr& v)
+{
+    handle = ::DataFlow::PacketStatisticPtr::dynamicCast(v);
+    if(v && !handle)
+    {
+        IceInternal::Ex::throwUOE(::DataFlow::PacketStatistic::ice_staticId(), v);
+    }
+}
+
 DataFlow::BatchDataProcessorStatus::~BatchDataProcessorStatus()
 {
 }
@@ -2518,6 +2649,20 @@ DataFlow::BatchDataProcessorStatus::ice_staticId()
 void
 DataFlow::BatchDataProcessorStatus::_iceGcVisitMembers(::IceInternal::GCVisitor& v_)
 {
+    if(packetTrain)
+    {
+        if((::DataFlow::upCast(packetTrain.get())->_iceGcVisit(v_)))
+        {
+            packetTrain = 0;
+        }
+    }
+    if(packetPredict)
+    {
+        if((::DataFlow::upCast(packetPredict.get())->_iceGcVisit(v_)))
+        {
+            packetPredict = 0;
+        }
+    }
     if(tensorInfos)
     {
         if((::DataFlow::upCast(tensorInfos.get())->_iceGcVisit(v_)))

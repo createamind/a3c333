@@ -78,10 +78,19 @@ class TensorInfos {
     TensorInfoList predict;
 };
 
+class PacketStatistic {
+    long packetRecvCount = 0;
+    long timeLastPacketRecved = 0;
+    long packetRecvProcessedCount = 0;
+    long packetSendCount = 0;
+    long packetSendInQueueCount = 0;
+};
+
 class BatchDataProcessorStatus {
     int batchIdxStart;
     int batchSize;
-    long packetCount = 0;
+    PacketStatistic packetTrain;
+    PacketStatistic packetPredict;
     TensorInfos tensorInfos;
 };
 

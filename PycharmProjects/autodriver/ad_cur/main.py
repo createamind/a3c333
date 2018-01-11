@@ -10,9 +10,10 @@ GAMMA = 0.99
 LOCAL_TIME_MAX = 5
 STEPS_PER_EPOCH = 1000
 EVAL_EPISODE = 0
-BATCH_SIZE = 64
-PREDICT_BATCH_SIZE = 8     # batch for efficient forward
-PREDICTOR_THREAD_PER_GPU = 2
+POOL_SIZE = 64
+TRAIN_BATCH_SIZE = 32
+PREDICT_MAX_BATCH_SIZE = 16     # batch for efficient forward
+PREDICTOR_THREAD_PER_GPU = 3
 PREDICTOR_THREAD = None
 INIT_LEARNING_RATE_A = 1e-4
 INIT_LEARNING_RATE_C = 1e-4
@@ -43,6 +44,7 @@ Options:
     --fake_agent                use fake agent to debug          
 ''', version='0.1')
 
+os.environ['ICE_RPCIO_LISTEN_PORT_BASE'] = "51000"
 if args['train']:
     from drlutils.dataflow.tensor_io import TensorIO_AgentPools
     data_io = TensorIO_AgentPools(train_targets=['AD'])
@@ -52,15 +54,15 @@ from drlutils.model.base import ModelBase
 class Model(ModelBase):
     def _get_inputs(self, select = None):
         from drlutils.model.base import ModelBase, InputDesc
-        inputs = [InputDesc(tf.int32, (), 'agentIdent'),
-                        InputDesc(tf.float32, (None, 37), 'state'),
-                        InputDesc(tf.float32, (None, 2), 'action'),
-                        InputDesc(tf.float32, (None,), 'futurereward'),
-                        InputDesc(tf.float32, (None,), 'advantage'),
-                        InputDesc(tf.int32, (), 'sequenceLength'),
-                        InputDesc(tf.int32, (), 'resetRNN'),
-                        # InputDesc(tf.float32, (None,), 'action_prob'),
-                        ]
+        inputs = [
+            InputDesc(tf.float32, (None, 37), 'state'),
+            InputDesc(tf.float32, (None, 2), 'action'),
+            InputDesc(tf.float32, (None,), 'reward'),
+            InputDesc(tf.float32, (None,), 'advantage'),
+            InputDesc(tf.int32, (), 'sequenceLength'),
+            InputDesc(tf.int32, (), 'resetRNN'),
+            # InputDesc(tf.float32, (None,), 'action_prob'),
+        ]
         if select is None:
             return inputs
 
@@ -92,7 +94,7 @@ class Model(ModelBase):
                 return cell
 
             cell = tf.nn.rnn_cell.MultiRNNCell([_get_cell() for _ in range(1)])
-            rnn_outputs = self._buildRNN(l, cell, tensor_io.batchSize,
+            rnn_outputs = self._buildRNN(l, cell, tensor_io.batchSizeMax,
                                          i_agentIdent=i_agentIdent,
                                          i_sequenceLength=i_sequenceLength,
                                          i_resetRNN=i_resetRNN,
@@ -179,6 +181,11 @@ class Model(ModelBase):
             #                    'mu/sigma/sigma.orig/act=', summarize=4)
             if not hasattr(self, '_weights_actor'):
                 self._weights_actor = tf.get_collection(tf.GraphKeys.TRAINABLE_VARIABLES, scope=vs.name)
+        policy = tf.identity(policy, 'policy')
+        value = tf.identity(value, 'value')
+        mus = tf.identity(mus, 'mus')
+        sigmas = tf.identity(sigmas, 'sigmas')
+
         if not is_training:
             tensor_io.setOutputTensors(policy, value, mus, sigmas)
             return
@@ -199,7 +206,7 @@ class Model(ModelBase):
         exp_v = entropy_beta * entropy + exp_v
         loss_policy = tf.reduce_mean(-tf.reduce_sum(exp_v, axis=-1), name='loss/policy')
 
-        i_futurereward = tensor_io.getInputTensor("futurereward")
+        i_futurereward = tensor_io.getInputTensor("reward")
         i_futurereward = tf.reshape(i_futurereward, [-1] + i_futurereward.get_shape().as_list()[2:])
         loss_value = tf.reduce_mean(0.5 * tf.square(value - i_futurereward))
 
@@ -231,8 +238,11 @@ class Model(ModelBase):
         gpu_towers = [0]
         for towerIdx, tower in enumerate(gpu_towers):
             with NNContext("ADTrain", device='/device:GPU:%d' % tower, summary_collection=towerIdx==0, is_training=True):
-                batch_size = BATCH_SIZE
-                data_io.createPool('AD-%d'%towerIdx, batch_size, sub_batch_size = 1, is_training = True, torcsIdxOffset = data_io.getAgentCountTotal())
+                data_io.createPool('AD-%d'%towerIdx, POOL_SIZE, sub_batch_size = 1, is_training = True,
+                                   train_batch_size=TRAIN_BATCH_SIZE,
+                                   predict_max_batch_size=PREDICT_MAX_BATCH_SIZE,
+                                   torcsIdxOffset = data_io.getAgentCountTotal(),
+                                   )
                 tensor_io = data_io.getTensorIO("AD-%d/train"%towerIdx, self._get_inputs(), queue_size=50, is_training=True)
                 loss_policy, loss_value = self._build_ad_nn(tensor_io)
                 self._addLoss('policy%d'%towerIdx, loss_policy, opt=self._get_optimizer('actor'),

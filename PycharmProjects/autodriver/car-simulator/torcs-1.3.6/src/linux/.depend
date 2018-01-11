@@ -24,8 +24,8 @@ main.o: main.cpp /usr/include/stdc-predef.h \
  /usr/include/GL/glext.h /usr/include/inttypes.h \
  /usr/lib/gcc/x86_64-linux-gnu/5/include/stdint.h /usr/include/stdint.h \
  /usr/include/x86_64-linux-gnu/bits/wchar.h /usr/include/GL/glu.h \
- /home/ubuntu/project/drlcar/PycharmProjects/autodriver/car-simulator/torcs-1.3.6/export/include/tgfclient.h \
- /home/ubuntu/project/drlcar/PycharmProjects/autodriver/car-simulator/torcs-1.3.6/export/include/tgf.h \
+ /home/test/PycharmProjects/autodriver/car-simulator/torcs-1.3.6/export/include/tgfclient.h \
+ /home/test/PycharmProjects/autodriver/car-simulator/torcs-1.3.6/export/include/tgf.h \
  /usr/include/stdio.h /usr/include/libio.h /usr/include/_G_config.h \
  /usr/include/wchar.h /usr/lib/gcc/x86_64-linux-gnu/5/include/stdarg.h \
  /usr/include/x86_64-linux-gnu/bits/stdio_lim.h \
@@ -62,7 +62,7 @@ main.o: main.cpp /usr/include/stdc-predef.h \
  /usr/include/x86_64-linux-gnu/bits/nan.h \
  /usr/include/x86_64-linux-gnu/bits/mathdef.h \
  /usr/include/x86_64-linux-gnu/bits/mathcalls.h \
- /home/ubuntu/project/drlcar/PycharmProjects/autodriver/car-simulator/torcs-1.3.6/export/include/osspec.h \
+ /home/test/PycharmProjects/autodriver/car-simulator/torcs-1.3.6/export/include/osspec.h \
  /usr/include/plib/js.h /usr/include/plib/ul.h /usr/include/ctype.h \
  /usr/include/unistd.h /usr/include/x86_64-linux-gnu/bits/posix_opt.h \
  /usr/include/x86_64-linux-gnu/bits/environments.h \
@@ -76,10 +76,10 @@ main.o: main.cpp /usr/include/stdc-predef.h \
  /usr/include/x86_64-linux-gnu/bits/errno.h /usr/include/linux/errno.h \
  /usr/include/x86_64-linux-gnu/asm/errno.h \
  /usr/include/asm-generic/errno.h /usr/include/asm-generic/errno-base.h \
- /home/ubuntu/project/drlcar/PycharmProjects/autodriver/car-simulator/torcs-1.3.6/export/include/screen_properties.h \
- /home/ubuntu/project/drlcar/PycharmProjects/autodriver/car-simulator/torcs-1.3.6/export/include/client.h \
+ /home/test/PycharmProjects/autodriver/car-simulator/torcs-1.3.6/export/include/screen_properties.h \
+ /home/test/PycharmProjects/autodriver/car-simulator/torcs-1.3.6/export/include/client.h \
  linuxspec.h \
- /home/ubuntu/project/drlcar/PycharmProjects/autodriver/car-simulator/torcs-1.3.6/export/include/raceinit.h \
+ /home/test/PycharmProjects/autodriver/car-simulator/torcs-1.3.6/export/include/raceinit.h \
  ../libs/iceapi/utils/ice_server.h /usr/include/Ice/Ice.h \
  /usr/include/IceUtil/PushDisableWarnings.h /usr/include/Ice/Config.h \
  /usr/include/IceUtil/Config.h /usr/include/c++/5/cassert \
@@ -342,7 +342,7 @@ linuxspec.o: linuxspec.cpp /usr/include/stdc-predef.h \
  /usr/include/x86_64-linux-gnu/bits/posix_opt.h \
  /usr/include/x86_64-linux-gnu/bits/environments.h \
  /usr/include/x86_64-linux-gnu/bits/confname.h /usr/include/getopt.h \
- /home/ubuntu/project/drlcar/PycharmProjects/autodriver/car-simulator/torcs-1.3.6/export/include/tgf.h \
+ /home/test/PycharmProjects/autodriver/car-simulator/torcs-1.3.6/export/include/tgf.h \
  /usr/include/x86_64-linux-gnu/sys/param.h \
  /usr/lib/gcc/x86_64-linux-gnu/5/include-fixed/limits.h \
  /usr/lib/gcc/x86_64-linux-gnu/5/include-fixed/syslimits.h \
@@ -372,5 +372,5 @@ linuxspec.o: linuxspec.cpp /usr/include/stdc-predef.h \
  /usr/include/x86_64-linux-gnu/bits/nan.h \
  /usr/include/x86_64-linux-gnu/bits/mathdef.h \
  /usr/include/x86_64-linux-gnu/bits/mathcalls.h \
- /home/ubuntu/project/drlcar/PycharmProjects/autodriver/car-simulator/torcs-1.3.6/export/include/osspec.h \
- /home/ubuntu/project/drlcar/PycharmProjects/autodriver/car-simulator/torcs-1.3.6/export/include/os.h
+ /home/test/PycharmProjects/autodriver/car-simulator/torcs-1.3.6/export/include/osspec.h \
+ /home/test/PycharmProjects/autodriver/car-simulator/torcs-1.3.6/export/include/os.h

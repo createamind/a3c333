@@ -133,20 +133,20 @@ class _TorcsBot(object):
             # logger.info("curLapTime = {}".format(status.curLapTime))
             # logger.info("focus = {}, speedXDelta={:.2f}".format(['{:.3f}'.format(f) for f in focus.tolist()], speedXDelta))
             # logger.info("track = {}".format(['{:.3f}'.format(f) for f in _track.tolist()]))
-            #logger.info("S={:+06.1f}[{:05.1f}] P={}{:+.3f} R={:+.3f}[{:+.3f}/{:+.3f}/{:+.3f}/{:+.3f}] V={:+4.1f} S/A/B={}{:+.3f}/{:+.3f}/{:+.3f} M/S={:+.3f}\u00B1{:.2f}/{:+.3f}\u00B1{:.2f} A={:.3f}[{}{:+.3f}] D={:.1f}[{:.1f}] F={:.1f}/{:.1f}" #, C={:.2f}, G={}[{:.1f}]"
-             #           .format(status.speedX, self._speed_max,
-              #                  'L' if status.trackPos > 0 else 'R', status.trackPos,
-               #                 self._reward,
-                #                reward_speed, reward_steer, reward_focus, reward_dangerous,
-                 #               self._cur_value,
-                  #              'L' if di.steering > 0 else 'R', di.steering, di.acceleration, di.brake,
-                   #             self._cur_mu[0], self._cur_sigma[0], self._cur_mu[1], self._cur_sigma[1],
-                    #            np.cos(status.angle), 'HL' if status.angle < 0 else 'HR', status.angle,
-                     #           status.damage-last_status.damage, last_status.damage,
-                      #          focus.min(), focus.max(),
+            logger.info("S={:+06.1f}[{:05.1f}] P={}{:+.3f} R={:+.3f}[{:+.3f}/{:+.3f}/{:+.3f}/{:+.3f}] V={:+4.1f} S/A/B={}{:+.3f}/{:+.3f}/{:+.3f} M/S={:+.3f}\u00B1{:.2f}/{:+.3f}\u00B1{:.2f} A={:.3f}[{}{:+.3f}] D={:.1f}[{:.1f}] F={:.1f}/{:.1f}" #, C={:.2f}, G={}[{:.1f}]"
+                        .format(status.speedX, self._speed_max,
+                                'L' if status.trackPos > 0 else 'R', status.trackPos,
+                                self._reward,
+                                reward_speed, reward_steer, reward_focus, reward_dangerous,
+                                self._cur_value,
+                                'L' if di.steering > 0 else 'R', di.steering, di.acceleration, di.brake,
+                                self._cur_mu[0], self._cur_sigma[0], self._cur_mu[1], self._cur_sigma[1],
+                                np.cos(status.angle), 'HL' if status.angle < 0 else 'HR', status.angle,
+                                status.damage-last_status.damage, last_status.damage,
+                                focus.min(), focus.max(),
                                 # di.clutch,
                                 # di.gear, status.rpm,
-                       #         ))
+                                ))
 
         self._hist_status.append(status)
         if self._cur_laps != status.laps:
@@ -198,7 +198,7 @@ class _TorcsBot(object):
         self._cur_status = status
 
     def parsePredict(self, predict):
-        action, value, mu, sigma = predict
+        action, value, mu, sigma = predict['policy'], predict['value'], predict['mus'], predict['sigmas']
         self._cur_value = value
         self._cur_mu = mu
         self._cur_sigma = sigma
@@ -335,7 +335,7 @@ class AgentTorcs2(AgentSingleLoop, Race.Pool):
 
     def _init(self):
         super(AgentTorcs2, self)._init()
-        logger.info("agent {} init: isTrain={}".format(self._agentIdent, self._isTrain))
+        logger.info("agent {} init: isTrain={}, kwargs={}".format(self._agentIdent, self._isTrain, self._kwargs))
         import os
         from ..utils import ensure_dir_exists
         self._torcs_dir = os.path.expanduser('~/torcs1.3.6')
@@ -644,7 +644,8 @@ class AgentTorcs2(AgentSingleLoop, Race.Pool):
         return theta * (mu - x) + sigma * self._rng.randn(1)
 
     def _step(self, predict):
-        action, value, _, _ = predict
+        from drlutils.agent.base import StepResult
+        action, value = predict['policy'], predict['value']
         assert (len(action.shape) == 1 and action.shape[0] == 2), action.shape
 
         if self._isTrain and self._explore > 0:
@@ -661,7 +662,7 @@ class AgentTorcs2(AgentSingleLoop, Race.Pool):
         stepParam.driveInfos = [bot._cur_driveInfo for bot in self._bots if not bot._isHookBot]
 
         def return_end_state():
-            return np.zeros_like(self._last_result[0]), np.zeros_like(self._last_result[1]), np.zeros_like(self._last_result[2]), True
+            return StepResult(np.zeros_like(self._last_result[0]), np.zeros_like(self._last_result[1]), np.zeros_like(self._last_result[2]), True, 0.)
         try:
             result = self._raceServerPrx.step(stepParam)
             if len(result.statusList) == 0:
@@ -687,7 +688,7 @@ class AgentTorcs2(AgentSingleLoop, Race.Pool):
                 isOver = True
                 self._raceServerPrx = None
             self._last_result = (obs, action, reward)
-            return obs, action, reward, isOver
+            return StepResult(obs, action, reward, isOver, value)
         except (Ice.NoValueFactoryException, Ice.ConnectionLostException, Ice.ConnectionRefusedException):
             self._blockResetCount = 0
             return_end_state()
