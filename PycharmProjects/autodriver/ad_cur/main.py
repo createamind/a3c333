@@ -39,7 +39,10 @@ Options:
     --continue                  continue mode, load saved weights
     --tfdbg
     --log LEVEL                 log level                       [default: info]
-    --target TARGET             test target
+    --target TARGET   
+              
+              
+              test target
     --fake_agent                use fake agent to debug          
 ''', version='0.1')
 
