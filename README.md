@@ -1,3 +1,6 @@
+
+# <a href="http://mp.weixin.qq.com/s/4gfPfHy-MvfobH7qXdNjlw">[demo show]</a> 
+
 # Install 
 Platform: Ubuntu 16.04
 
